@@ -1,5 +1,4 @@
 import React from "react";
-import User from "./components/User"
 import FollowersList from './components/FollowersList';
 import axios from "axios";
 import './App.css';
@@ -15,13 +14,13 @@ class App extends React.Component {
   componentDidMount() {
     console.log("CDM Invoked!");
     axios
-    .get("https://api.github.com/users/bradlylewis/")
+    .get("https://api.github.com/users/bradlylewis")
     .then(res => {
         this.setState({
           ...this.state,
           gitData: res.data  
           })
-        console.log("FOLLOWERS>>>", res.data);
+        console.log(res.data);
     })
     .catch((err) => {
         console.log(err);
@@ -30,9 +29,13 @@ class App extends React.Component {
 
   render() {
     return(
-      <div className = "gitClass">
-        <h1> Git On Outta Here!</h1>
-        <User/>
+      <div className="app-container">
+        <div className="user-card">
+          <h1>Github Project</h1>
+          <img src={this.state.gitData.avatar_url} alt="alt"/>
+          <h2>Username: {this.state.gitData.login}</h2>
+          <h2>Id: {this.state.gitData.id}</h2>
+        </div>
         <FollowersList/>
       </div>
     )
