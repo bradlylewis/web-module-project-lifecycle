@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import '../styles/FollowersList.css'
+
 
 class FollowersList extends React.Component{
     state = {
@@ -23,14 +25,15 @@ class FollowersList extends React.Component{
     render() {
         return(
            
-            <div className = "follower-container">
-                <div className = "follower-card" >My followers are:</div>
+            <div className="follower-container">
                 {this.state.gitFollowers.map(follower => {
                 return (
-                    <div className = "card">
-                        <img className = "image" src={follower.avatar_url} alt = "alt"/>
-                        <div>{follower.login}</div>
-                        <div>{follower.id}</div>
+                    <div key={follower.id} className="follower-card">
+                        <img className="follower-image" src={follower.avatar_url} alt = "alt"/>
+                        <div className='follower-content'>
+                            <div className='follower-detail'>Username: {follower.login}</div>
+                            <div className='follower-detail'>{follower.html_url}</div>
+                        </div>
                     </div>
                 )})}
             </div>
