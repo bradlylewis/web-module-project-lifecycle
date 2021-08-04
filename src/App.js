@@ -1,15 +1,12 @@
 import React from "react";
 import FollowersList from './components/FollowersList';
+import GitUser from './components/GitUser'
 import axios from "axios";
 import './App.css';
 
 class App extends React.Component {
-  constructor() {
-    console.log("Constructor Invoked!");
-    super();
-    this.state = {
-      gitData: []
-    }
+  state = {
+  gitData: []
   }
   componentDidMount() {
     console.log("CDM Invoked!");
@@ -30,11 +27,8 @@ class App extends React.Component {
   render() {
     return(
       <div className="app-container">
-        <div className="user-card">
-          <h1>Github Project</h1>
-          <img src={this.state.gitData.avatar_url} alt="alt"/>
-          <h2>Username: {this.state.gitData.login}</h2>
-          <h2>Id: {this.state.gitData.id}</h2>
+        <div className="header">
+          {this.state !== null ? (<GitUser user={this.state.gitData} />) : (<div>Loading</div>)}
         </div>
         <FollowersList/>
       </div>

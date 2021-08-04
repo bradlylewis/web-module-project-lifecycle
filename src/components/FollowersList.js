@@ -1,19 +1,17 @@
 import React from "react";
 import axios from "axios";
 
-
-//Class definition
 class FollowersList extends React.Component{
     state = {
-        gitterFollowers: []
+        gitFollowers: []
     }
     componentDidMount() {
         axios
         .get("https://api.github.com/users/bradlylewis/followers")
         .then(res => {
             this.setState({
-                // ...this.state,
-                gitterFollowers: res.data  
+                ...this.state,
+                gitFollowers: res.data  
             })
             console.log("FOLLOWERS>>>", res.data);
         })
@@ -25,9 +23,9 @@ class FollowersList extends React.Component{
     render() {
         return(
            
-            <div className = "myCard">
-                <div className = "card" >My followers are:</div>
-                {this.state.gitterFollowers.map(follower => {
+            <div className = "follower-container">
+                <div className = "follower-card" >My followers are:</div>
+                {this.state.gitFollowers.map(follower => {
                 return (
                     <div className = "card">
                         <img className = "image" src={follower.avatar_url} alt = "alt"/>
