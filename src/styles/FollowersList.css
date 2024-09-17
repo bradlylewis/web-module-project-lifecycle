@@ -1,0 +1,30 @@
+.follower-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    border-top: 1px solid #2e333a;
+    padding: 3em 0;
+}
+.follower-card {
+    border: 1px solid #2e333a;
+    padding: 1em;
+    margin: 1em 1em;
+    background-color: #21262d;
+    border-radius: 2%;
+    box-shadow: rgba(33,38,45, 0.25) 0px 25px 50px -12px;
+}
+.follower-image {
+    width: 20em;
+    border-radius: 1%;
+    border: 2px solid #2e333a;
+    box-shadow: rgba(33,38,45, 0.7) 0px 5px 15px;
+}
+.follower-content {
+    padding: 1em;
+    letter-spacing: 0.3px;
+    word-spacing: 0.3rem;
+}
+.follower-detail {
+    margin: 1em 0;
+
+}
